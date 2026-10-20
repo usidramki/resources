@@ -22,11 +22,11 @@ The code is self-contained and requires no third-party IDL libraries, add-on pac
 
 The differential equations are integrated using an in-house implementation of the embedded Runge–Kutta–Fehlberg 5(6) method.
 
-Model equations, parameter choices and initial conditions are described in the manuscript and the relevant figure captions. Numerical implementation details are provided in Appendix A. Reproduction of a particular result requires the corresponding model variant, parameter values and initial conditions.
+Model equations, parameter choices and initial conditions are described in the manuscript and the relevant figure captions. Numerical implementation details are provided in the paper. Reproduction of a particular result requires the corresponding model variant, parameter values and initial conditions.
 
 ## Alternative runtime
 
-[GNU Data Language (GDL)](https://github.com/gnudatalanguage/gdl) is a free, open-source IDL-compatible implementation. The reference environment used to generate the published results is IDL 8.8.3; GDL compatibility of this code has not been verified here.
+[GNU Data Language (GDL)](https://github.com/gnudatalanguage/gdl) is a free, open-source IDL-compatible implementation. The reference environment used to generate the published results is IDL 8.8.3.
 
 ## Citation
 
