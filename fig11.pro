@@ -348,57 +348,9 @@ end
 
 
 
-
-;#############################################################################
-;
-; Copyright (C) 2008, Michele Cappellari
-; E-mail: cappellari_at_astro.ox.ac.uk
-;
-; Updated versions of the software are available from my web page
-; http://www-astro.physics.ox.ac.uk/~mxc/idl/
-;
-; If you have found this software useful for your research,
-; I would appreciate an acknowledgment and a link to the website.
-; 
-; This software is provided as is without any warranty whatsoever.
-; Permission to use, for non-commercial purposes is granted.
-; Permission to modify for personal or internal use is granted,
-; provided this copyright and disclaimer are included unchanged
-; at the beginning of the file. All other rights are reserved.
-;
-;#############################################################################
-;
-; hf = Hypergeometric2F1(a, b, c, x)
-;
-; From the book "Computation of Special Functions"
-;    by Shanjie Zhang and Jianming Jin
-;    Copyright 1996 by John Wiley & Sons, Inc.
-; The authors state:
-;   "We give permission to the reader who purchases this book 
-;    to incorporate any of these programs into his or her 
-;    programs provided that the copyright is acknowledged."
-;
-;       ====================================================
-;       Purpose: Compute hypergeometric function F(a,b,c,x)
-;       Input :  a --- Parameter
-;                b --- Parameter
-;                c --- Parameter, c <> 0,-1,-2,...
-;                x --- Argument   ( x < 1 )
-;       Output:  HF --- F(a,b,c,x)
-;       Routines called:
-;            (1) GAMMA for computing gamma function
-;            (2) PSI for computing psi function
-;       ====================================================
-;
-;------------------------------------------------------------------------------
 function hygfx_psi, x
 compile_opt idl2, hidden
-;
-;       ======================================
-;       Purpose: Compute PolyGamma Psi function
-;       Input :  x  --- Argument of psi(x)
-;       Output:  PS --- psi(x)
-;       ======================================
+
 
 el = 0.57721566490153286061d ; N[EulerGamma,20] in Mathematica
 
@@ -622,13 +574,11 @@ b = bb
 return, hf
 
 END
-;------------------------------------------------------------------------------
+
+
 function Hypergeometric2F1, a, b, c, x
 compile_opt idl2
 on_error, 2
-;
-; This is just a wrapper for the actual function, 
-; as the computation routine is not (yet) vectorized.
 
 n = n_elements(x)
 hyp = dblarr(n,/NOZERO)
@@ -639,18 +589,9 @@ END
 
  
  
-;----------------------------------------------------------------------
+
 function ibetam, x, a, b
-;
-; Incomplete beta function defined in the same 
-; way as the Mathematica function Beta[x,a,b].
-; This routine works for x<1 and was tested against Mathematica.
-;
-; V1.0: Michele Cappellari, Oxford, 01/APR/2008
-; V2.0: Use Hypergeometric function for negative parameters.
-;    From equation (6.6.8) of Abramoviz & Stegun
-;    http://www.nrbook.com/abramowitz_and_stegun/page_263.htm 
-;    MC, Oxford, 04/APR/2008
+
  
 if a gt 0 && b gt 0 then $
     ib = ibeta(a,b,x)*beta(a,b) $
